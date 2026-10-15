@@ -2,7 +2,7 @@
 
 TwitchThanksLogger は、Twitch配信者・VTuber向けの Windows / OBS 用ツールです。配信中に発生した「お礼の対象」をローカルに記録し、配信後に日本語のお礼文を準備しやすくします。
 
-> **現在は Limited Public Beta（限定的な公開ベータ）として準備中です。** まだ何も公開されていません。
+> **現在は Limited Public Beta（限定的な公開ベータ）です。** 正式版（一般提供）ではありません。ダウンロードは [GitHub Releases](https://github.com/childalabo/TwitchThanksLogger/releases) から入手できます。
 
 ## できること
 
@@ -36,7 +36,7 @@ TwitchThanksLogger は、Twitch配信者・VTuber向けの Windows / OBS 用ツ�
 
 ## 使い方
 
-使い方の詳細は、Limited Public Beta の公開時にあわせて案内します。基本的な流れは次のとおりです。
+基本的な流れは次のとおりです。
 
 1. TwitchThanksLogger をインストールし、OBS と連携させます。
 2. Twitch アカウントで認証（OAuth）します。
@@ -66,13 +66,13 @@ TwitchThanksLogger は、Twitch配信者・VTuber向けの Windows / OBS 用ツ�
 
 ## ダウンロード
 
-現在、ダウンロードできるものはまだ公開されていません。
+Limited Public Beta は GitHub Releases で配布しています。
 
-正式な配布場所は GitHub Releases を予定しています。ダウンロード方法は、Limited Public Beta の公開時にお知らせします。
+配布物（Setup.exe、TwitchThanksLogger-Logger.zip、OBS Nativeプラグインの対応ソース／ビルド情報ZIP、SHA-256一覧）は [GitHub Releases](https://github.com/childalabo/TwitchThanksLogger/releases) にあります。実行前に必ずSHA-256を照合してください。
 
 ## 不具合報告
 
-公開後は GitHub Issues を公式の報告先とする予定です。
+不具合報告の公式の窓口は GitHub Issues です。
 
 - [GitHub Issues](https://github.com/childalabo/TwitchThanksLogger/issues)
 
