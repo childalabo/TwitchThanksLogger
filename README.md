@@ -74,7 +74,7 @@ TwitchThanksLogger は、Twitch配信者・VTuber向けの Windows / OBS 用ツ�
 
 公開後は GitHub Issues を公式の報告先とする予定です。
 
-- [公開時にGitHub Issuesへのリンクを設定]
+- [GitHub Issues](https://github.com/childalabo/TwitchThanksLogger/issues)
 
 このベータ版では、匿名での不具合レポート送信機能は利用できません。
 
