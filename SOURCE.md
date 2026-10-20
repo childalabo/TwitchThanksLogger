@@ -1,50 +1,52 @@
-# 対応ソース／ビルド情報について
+# 対応ソース／ビルド情報について（beta.4）
 
-候補ID: `production-rc-20261015-02`
+候補ID: `ttl-common-native-beta4-cand-20261017-01`
 
 ## 提供物
 
-- ファイル名: `ttl-r3-native-corresponding-source-production-rc-20261015-02.zip`
-- SHA-256: `be285efcb0234c3fe4f5db2163bdade3fab4e2e01809905215f6f264d1ced071`
-- サイズ: 62495 byte（28エントリ）
-- `BUILD-INFO.md` SHA-256: `3d5086180cae8b7f70bc7f3a3e86e6e19283e9cfd5518532b0cbe936b823001f`
-- `linkage-manifest.json` SHA-256: `458b61cae3fff04a593c3e856e87382f5acbb81d4748c3923676e63e971163c8`
+- ファイル名: `TwitchThanksLogger-Native-Source-0.1.0-beta.4.zip`
+- SHA-256: `305c730f43a6242f701bd06bb15f56166b8d23a406bccbc1373ee5676b650922`
+- サイズ: 45161 byte（22エントリ）
+- `BUILD-INFO.json` SHA-256: `ff18c0199095b61ac15bee0af0c071b161e8a06c87e1dfa716696bf4042a2d69`
 
-このZIPには、出荷したOBS Nativeプラグイン用に組み立てた、特定済みの保存済みNativeソース状態、ビルド設定、ビルド情報、ライセンス／通知、および候補との対応づけが含まれます。内部の `SHA256SUMS.txt` で各ファイルを検証できます。
+このZIPには、`TwitchThanksLogger-Beta-Setup.exe` に組み込まれた OBS Native プラグイン（GPL-2.0-or-later）に対応するソース、ビルド設定、ビルド情報、ライセンス／通知が含まれます。内容は、ZIP内の `BUILD-INFO.json` に記録したファイルごとのSHA-256で確認できます。
 
-## 出荷したNative DLLと、対応するソース状態
+## 出荷した Native DLL
 
-2つのNative DLLは、**異なる**ソース状態からビルドされています。
+| 項目 | 値 |
+|---|---|
+| ファイル | `twitchthankslogger-obs.dll`（Setup に埋め込み） |
+| SHA-256 | `1c0e6fc714ca099bbcf7824d0e2c02281775ede7c7530077d5bc2dcefa7f1765` |
+| サイズ | 96768 byte |
+| 世代 | `0.1.0-beta.4-native.1` |
 
-| OBS / Qt | Native DLL SHA-256 | ソース状態 | plugin.cpp | FrontendLifetime.h |
-|---|---|---|---|---|
-| 32.1.2 / 6.8.3 | `5e52dcc1433e9196c93c99746ffcf6e7bc236e7a2d67cd47167441fc0188f1b1` | 強化（hardened）後 | `9dcaf4220e99ce31da3173879b9d607afde5f705edf93fd3e0f704c32c61099a` | `f02e02e4e03a85e39f23a877d2b0191d164f9e4804a34cced78149f78b804d66` |
-| 32.2.2 / 6.11.1 | `5ff3a8e482c1ac91faf364f9b96672b555dad8586e6b0798589a631731d73e08` | 強化前（pre-hardening） | `2336e6e643e3a5dadd130443ebe54683ccd76e21b41deb152cba615c7a06fce7` | `c8a50ce2627a6ef6f87bb245290618905a3f727cd026e8c48d08f8e40336b7a8` |
+beta.4 の Native DLL は**1つだけ**で、OBS 32.1.x と 32.2.x の両方の環境で同じものを使います。ビルドは1回で、OBS 32.1.2 / Qt 6.8.3 に対して行いました（Release x64、MSVC 19.44.35228.0、CMake 3.31.6、C++20）。OBS 32.2.2 / Qt 6.11.1 に対して別にビルドしたものではありません。
 
-ZIP内の `source/obs-32.1.2_qt-6.8.3` と `source/obs-32.2.2_qt-6.11.1` が、それぞれの状態です。
+ソースの系譜は、beta.3 で出荷した OBS 32.1.2 向けの強化（hardened）済みソースを基にして、beta.4 の変更差分（`native/obs-plugin/beta4-delta.patch`）を適用したものです。基になったファイルと最終のファイルのハッシュは `BUILD-INFO.json` にあります。
 
-### 対応づけの強さ（2つは同等ではありません）
+## 現在の開発ツリーとの関係
 
-- **32.1.2**: 保存されたビルド記録が、DLLのハッシュと変更後のソースハッシュを明示的に結び付けています。
-- **32.2.2**: ビルド実行期間の前後で保存されていたソースハッシュ（強化前）が同一であること、およびDLLのファイル時刻がその期間内であることに基づく対応づけです。DLL自体にソース識別子は埋め込まれていません。**32.1.2の対応づけより弱い関係**です。
-
-## 現在の開発ツリーについて
-
-現在の開発ツリーのNativeソースは、出荷した2つのNative DLLのいずれの正確なソース状態でもありません。現在の作業ツリーを、出荷物の正確なソースとして参照しないでください。出荷物のソース状態は上記ZIPに保存したものです。
+ZIPの `native/obs-plugin` は、上の DLL に対応するソースです。ZIPの `BUILD-INFO.json` には、非公開の開発リポジトリ内の識別子が記録されていますが、その開発リポジトリはこのリポジトリには含まれません。
 
 ## 記録されている不明点（UNKNOWN）
 
-- Windows SDKのバージョン
-- OBS 32.2.2ソースの上流URL
-- Qt 6.11.1 SDKの上流URL
-- 32.2.2のビルド実行スクリプト
-- 2つの過去ビルドの正確なconfigureコマンドライン
+- beta.3 で出荷したバイナリをビルドしたときの Windows SDK のバージョン
+- この DLL を、このソースから同一のバイト列で再ビルドできるかどうか
+
+OBS / Qt の SDK は第三者のものでZIPには含まれません。その入力ファイルのSHA-256は `BUILD-INFO.json` に記録しています。
 
 ## 主張しないこと
 
 - 再現可能ビルド（reproducible build）が証明されたとは主張しません。
-- 決定的なNative再ビルドが証明されたとは主張しません。
-- GPLの法的適合性が証明されたとは主張しません。
-- 過去のビルドコマンドが完全に復元されたとは主張しません。
+- 決定的な Native 再ビルドが証明されたとは主張しません。
+- GPL の法的適合性が証明されたとは主張しません。
 
-ライセンス文書（`LICENSE/OBS-GPL-2.0.txt`、`LICENSE/THIRD_PARTY_NOTICES.md`）はZIPに含まれます。
+## ソースの公開範囲
+
+このリリースで公開するソースは、上の OBS Native プラグインの対応ソースだけです。
+
+- **TwitchThanksLogger 本体のソースは公開していません。**
+- このリポジトリの Git タグ（`v0.1.0-beta.4`）は、配布物の案内用のドキュメントを指しており、アプリ本体のソースを含みません。タグからアプリ本体を再現できるとは主張しません。
+- GitHub が自動表示する「Source code (zip / tar.gz)」は、このドキュメントのリポジトリのスナップショットで、OBS Native プラグインの対応ソースではありません。
+
+ライセンス文書（`licenses/OBS-GPL-2.0.txt`、`THIRD_PARTY_NOTICES.md`）はZIPに含まれます。配布ZIPには、.NET などの第三者コンポーネントのライセンスと通知も同梱しています。
