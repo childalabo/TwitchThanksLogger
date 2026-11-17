@@ -1,13 +1,13 @@
-# 対応ソース／ビルド情報について（beta.4）
+# 対応ソース／ビルド情報について（beta.5）
 
 候補ID: `ttl-common-native-beta4-cand-20261017-01`
 
 ## 提供物
 
-- ファイル名: `TwitchThanksLogger-Native-Source-0.1.0-beta.4.zip`
-- SHA-256: `305c730f43a6242f701bd06bb15f56166b8d23a406bccbc1373ee5676b650922`
-- サイズ: 45161 byte（22エントリ）
-- `BUILD-INFO.json` SHA-256: `ff18c0199095b61ac15bee0af0c071b161e8a06c87e1dfa716696bf4042a2d69`
+- ファイル名: `TwitchThanksLogger-Native-Source-0.1.0-beta.5.zip`
+- SHA-256: `ea0918e85f358d5059348cb6e2241d64a2bb45b463108baa35d60df81750df7a`
+- サイズ: 45167 byte（22エントリ）
+- `BUILD-INFO.json` SHA-256: `9b607b735b903dd855297079f6f2e827cca23ec2a034eb2f1e84423ca81deb0e`
 
 このZIPには、`TwitchThanksLogger-Beta-Setup.exe` に組み込まれた OBS Native プラグイン（GPL-2.0-or-later）に対応するソース、ビルド設定、ビルド情報、ライセンス／通知が含まれます。内容は、ZIP内の `BUILD-INFO.json` に記録したファイルごとのSHA-256で確認できます。
 
@@ -20,7 +20,7 @@
 | サイズ | 96768 byte |
 | 世代 | `0.1.0-beta.4-native.1` |
 
-beta.4 の Native DLL は**1つだけ**で、OBS 32.1.x と 32.2.x の両方の環境で同じものを使います。ビルドは1回で、OBS 32.1.2 / Qt 6.8.3 に対して行いました（Release x64、MSVC 19.44.35228.0、CMake 3.31.6、C++20）。OBS 32.2.2 / Qt 6.11.1 に対して別にビルドしたものではありません。
+beta.5 の Native DLL は beta.4 で公開したものと同一のバイナリ（beta.5 では再ビルドしていません）で、**1つだけ**で、OBS 32.1.x と 32.2.x の両方の環境で同じものを使います。ビルドは1回で、OBS 32.1.2 / Qt 6.8.3 に対して行いました（Release x64、MSVC 19.44.35228.0、CMake 3.31.6、C++20）。OBS 32.2.2 / Qt 6.11.1 に対して別にビルドしたものではありません。
 
 ソースの系譜は、beta.3 で出荷した OBS 32.1.2 向けの強化（hardened）済みソースを基にして、beta.4 の変更差分（`native/obs-plugin/beta4-delta.patch`）を適用したものです。基になったファイルと最終のファイルのハッシュは `BUILD-INFO.json` にあります。
 
@@ -46,7 +46,7 @@ OBS / Qt の SDK は第三者のものでZIPには含まれません。その入
 このリリースで公開するソースは、上の OBS Native プラグインの対応ソースだけです。
 
 - **TwitchThanksLogger 本体のソースは公開していません。**
-- このリポジトリの Git タグ（`v0.1.0-beta.4`）は、配布物の案内用のドキュメントを指しており、アプリ本体のソースを含みません。タグからアプリ本体を再現できるとは主張しません。
+- このリポジトリの Git タグ（`v0.1.0-beta.5`）は、配布物の案内用のドキュメントを指しており、アプリ本体のソースを含みません。タグからアプリ本体を再現できるとは主張しません。
 - GitHub が自動表示する「Source code (zip / tar.gz)」は、このドキュメントのリポジトリのスナップショットで、OBS Native プラグインの対応ソースではありません。
 
 ライセンス文書（`licenses/OBS-GPL-2.0.txt`、`THIRD_PARTY_NOTICES.md`）はZIPに含まれます。配布ZIPには、.NET などの第三者コンポーネントのライセンスと通知も同梱しています。
